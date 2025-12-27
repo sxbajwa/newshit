@@ -1,0 +1,199 @@
+/* =========================
+   FONTS
+========================= */
+
+@font-face {
+  font-family: "font1";
+  src: url("../fonts/font1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "font2";
+  src: url("../fonts/font2.woff2") format("woff2");
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "font1", sans-serif;
+}
+
+body {
+  background: #ffe3ef;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   EMBED
+========================= */
+
+.embed {
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* =========================
+   GIF EMBED
+========================= */
+
+.gif-embed {
+  background: white;
+  padding: 18px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+
+.gif-embed img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* =========================
+   SONG ROW
+========================= */
+
+.songs {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.song-card {
+  background: white;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.song-card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.song-card h3 {
+  font-size: 1.1rem;
+  font-family: "font1";
+}
+
+.song-card p {
+  font-size: 0.75rem;
+  color: hotpink;
+  font-family: "font2";
+}
+
+/* =========================
+   LIKE BUTTON
+========================= */
+
+.like-btn {
+  margin-left: auto;
+  background: black;
+  color: white;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HEART POP */
+.heart {
+  position: absolute;
+  color: hotpink;
+  font-size: 20px;
+  animation: pop 0.8s ease-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote {
+  margin-top: 28px;
+  font-family: "font2";
+  font-size: 1.25rem;
+  color: hotpink;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+}
+
+/* =========================
+   NEXT PAGE BUTTON
+========================= */
+
+.next-btn {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 26px;
+  border-radius: 999px;
+  background: rgba(255, 105, 180, 0.9);
+  color: white;
+  text-decoration: none;
+  font-family: "font1";
+  font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(255, 105, 180, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.next-btn:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .songs {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .song-card {
+    width: 90%;
+  }
+}

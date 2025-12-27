@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For Cure 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cure.css" />
+  </head>
+
+  <body>
+    <div class="embed">
+      <!-- GIF EMBED -->
+      <div class="gif-embed">
+        <img src="../gifs/cute.gif" alt="cute gif" />
+      </div>
+
+      <!-- SONG ROW -->
+      <div class="songs">
+        <!-- SONG 1 -->
+        <div class="song-card" onclick="playSong(0)">
+          <img src="../gifs/img1.jpg" alt="song1 image" />
+          <div class="info">
+            <h3>°❀⋆.ೃ࿔*:･</h3>
+            <p>For Cure 💕</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+
+        <!-- SONG 2 -->
+        <div class="song-card" onclick="playSong(1)">
+          <img src="../gifs/img2.jpg" alt="song2 image" />
+          <div class="info">
+            <h3>. ♬ ݁˖</h3>
+            <p>Our favorite 🎧</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+
+        <!-- SONG 3 -->
+        <div class="song-card" onclick="playSong(2)">
+          <img src="../gifs/img3.jpg" alt="song3 image" />
+          <div class="info">
+            <h3>°‧ 𓆝 𓆟 𓆞 ·｡</h3>
+            <p>Always reminds me of you 💖</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+      </div>
+
+      <!-- ✧ QUOTE (soft, aesthetic, unchanged text) -->
+      <p class="quote">In a world full of noise, you are my melody.</p>
+
+      <!-- ✧ NEXT PAGE BUTTON -->
+      <a href="page2.html" class="next-btn"> next ♡ </a>
+    </div>
+
+    <audio id="player"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>

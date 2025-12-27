@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The End 💗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      @font-face {
+        font-family: "curve italic adobe";
+        src: url("../font/font2.woff2");
+        font-style: italic;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ffd6e8, #f3ccff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .embed {
+        background: linear-gradient(180deg, #fff0f7, #ffe6f2, #fbe9ff);
+        padding: 26px;
+        border-radius: 32px;
+        max-width: 430px;
+        width: 95%;
+        box-shadow: 0 25px 60px rgba(255, 105, 180, 0.35);
+        text-align: center;
+      }
+
+      .poem {
+        font-family: "curve italic adobe", cursive;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        background: linear-gradient(45deg, #ff5fa2, #9b5cff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .poem-gif {
+        margin: 22px 0;
+        padding: 14px;
+        border-radius: 28px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 105, 180, 0.35),
+          rgba(168, 85, 247, 0.35)
+        );
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.6),
+          inset 0 0 18px rgba(255, 255, 255, 0.8);
+      }
+
+      .poem-gif img {
+        width: 100%;
+        max-height: 220px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .sign {
+        margin-top: 16px;
+        font-size: 1.2rem;
+      }
+
+      .music-card {
+        margin-top: 26px;
+        background: linear-gradient(135deg, #000, #2b2b2b);
+        color: white;
+        padding: 14px;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        position: relative;
+        justify-content: center;
+      }
+
+      .music-card img {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        object-fit: cover;
+      }
+
+      .music-card h3 {
+        font-size: 0.95rem;
+      }
+
+      .like-btn {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: none;
+        background: black;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .heart {
+        position: absolute;
+        color: hotpink;
+        font-size: 20px;
+        animation: pop 0.8s ease-out forwards;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0.5);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-40px) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .end {
+        margin-top: 20px;
+        font-size: 1.6rem;
+        color: #ff5fa2;
+        font-family: "curve italic adobe";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="embed">
+      <div class="poem">
+        In a world that moves too fast, you are the moment I want to stay in.
+        Every laugh, every silence, feels softer when it belongs to you. I find
+        pieces of you in small things in late night thoughts, in familiar songs,
+        in feelings I never learned how to explain. You turn ordinary days into
+        memories, and simple words into something warm. Even when nothing is
+        said, my heart somehow understands.
+
+        <div class="poem-gif">
+          <img src="../gifs/gif4.gif" alt="gif" />
+        </div>
+
+        <div class="sign">- Sai</div>
+      </div>
+
+      <!-- MUSIC -->
+      <div class="music-card">
+        <img src="../gifs/img4.png" alt="song4 thumbnail" />
+        <h3>. ♬ The End ˖ 🎧</h3>
+        <button class="like-btn" onclick="playHeart(event)">❤</button>
+      </div>
+
+
+    <audio id="player" src="../music/song4.mp3"></audio>
+
+    <script>
+      function playHeart(event) {
+        event.stopPropagation(); // prevent other clicks
+        const player = document.getElementById("player");
+        if (player.paused) player.play();
+        else player.pause();
+
+        // create pop heart
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "❤";
+        const rect = event.target.getBoundingClientRect();
+        heart.style.left = rect.left + rect.width / 2 - 10 + "px";
+        heart.style.top = rect.top - 10 + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 800);
+      }
+    </script>
+  </body>
+</html>

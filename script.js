@@ -1,8 +1,8 @@
 // SONG FILES (order matters!)
 const songs = [
-  "../music/song1.mp3", // image1 → YOU
-  "../music/song2.mp3", // image2 → song2
-  "../music/song3.mp3", // image3 → song3
+  "song1.mp3", // image1 → YOU
+  "song2.mp3", // image2 → song2
+  "song3.mp3", // image3 → song3
 ];
 
 const player = document.getElementById("player");

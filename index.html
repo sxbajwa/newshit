@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For Cure 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cure.css" />
+    <style>
+      /* Heart animation for like button */
+      .heart {
+        position: absolute;
+        color: hotpink;
+        font-size: 20px;
+        animation: pop 0.8s ease-out forwards;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0.5);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-40px) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* Optional: song-card hover effect */
+      .song-card {
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .song-card:hover {
+        transform: scale(1.03);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="embed">
+      <!-- GIF EMBED -->
+      <div class="gif-embed">
+        <img src="cute.gif" alt="cute gif" />
+      </div>
+
+      <!-- SONG ROW -->
+      <div class="songs">
+        <!-- SONG 1 -->
+        <div class="song-card" onclick="playSong(0)">
+          <img src="img1.jpg" alt="song1 image" />
+          <div class="info">
+            <h3>°❀⋆.ೃ࿔*:･</h3>
+            <p>For Cure 💕</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+
+        <!-- SONG 2 -->
+        <div class="song-card" onclick="playSong(1)">
+          <img src="img2.jpg" alt="song2 image" />
+          <div class="info">
+            <h3>. ♬ ݁˖</h3>
+            <p>Our favorite 🎧</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+
+        <!-- SONG 3 -->
+        <div class="song-card" onclick="playSong(2)">
+          <img src="img3.jpg" alt="song3 image" />
+          <div class="info">
+            <h3>°‧ 𓆝 𓆟 𓆞 ·｡</h3>
+            <p>Always reminds me of you 💖</p>
+          </div>
+          <button class="like-btn" onclick="like(event)">❤</button>
+        </div>
+      </div>
+
+      <!-- ✧ QUOTE -->
+      <p class="quote">In a world full of noise, you are my melody.</p>
+
+      <!-- ✧ NEXT PAGE BUTTON -->
+      <a href="index2.html" class="next-btn"> next ♡ </a>
+    </div>
+
+    <!-- AUDIO PLAYER -->
+    <audio id="player"></audio>
+
+    <!-- SCRIPT -->
+    <script>
+      // SONG FILES (all in same folder)
+      const songs = ["song1.mp3", "song2.mp3", "song3.mp3"];
+      const player = document.getElementById("player");
+      let currentSong = -1;
+
+      // PLAY SONG
+      function playSong(index) {
+        if (currentSong !== index) {
+          currentSong = index;
+          player.src = songs[index];
+          player.play();
+          highlightSong();
+        }
+      }
+
+      // HIGHLIGHT ACTIVE SONG
+      function highlightSong() {
+        document.querySelectorAll(".song-card").forEach((card, i) => {
+          card.style.boxShadow =
+            i === currentSong
+              ? "0 0 25px rgba(255,105,180,0.8)"
+              : "0 8px 20px rgba(0,0,0,0.12)";
+        });
+      }
+
+      // LIKE BUTTON HEART POP
+      function like(event) {
+        event.stopPropagation(); // VERY IMPORTANT
+        const btn = event.currentTarget;
+
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.innerText = "❤";
+        btn.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 800);
+      }
+
+      // AUTO NEXT SONG
+      player.addEventListener("ended", () => {
+        currentSong = (currentSong + 1) % songs.length;
+        playSong(currentSong);
+      });
+    </script>
+  </body>
+</html>
